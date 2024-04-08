@@ -5,7 +5,11 @@
 word = input()
 countV = 0
 countC = 0
-while 'a' in word:
-
-    countV +=1
-    print(countV)
+A = ['a','e','o','u','i']
+for i in word:
+    if i in A:
+        countV +=1
+    else:
+        countC += 1
+print(countV)
+print(countC)

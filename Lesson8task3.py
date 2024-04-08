@@ -5,32 +5,40 @@
 fish = int(input("Введите количество рыбаков:"))
 weight = int(input("Введите вес который выдержит лодка:"))
 boat = 0
-mass = []
+mass = [1200, 33,23,55,98]
 loosers = 0
 
 while fish > 0:
     fish -= 1
-    mass.append(float(input("Введите вес рыбака:")))
-    mass.sort()
-while len(mass) >= 0:
+    # mass.append(float(input("Введите вес рыбака:")))
+mass.sort()
+while len(mass) > 0:
     if mass[-1] > weight:
         mass.pop(-1)
         loosers += 1
+    elif len(mass) == 1:
+        mass.pop(-1)
+        boat += 1
     elif mass[-1] == weight:
         boat +=1
         mass.pop(-1)
     elif mass [-1] < weight:
         cnt = 0
-        trd = mass[-1] + mass[cnt]
-        while trd < weight:
+        trd = 0
+        while trd < weight and cnt < len(mass) and cnt+1 != len(mass):
+           trd = mass[-1] + mass[cnt]
            cnt += 1
-        if cnt == weight:
-            mass.pop(-1)
-            mass.pop(cnt)
-            boat += 1
-        elif cnt > weight:
+        if trd < weight:
             mass.pop(-1)
             mass.pop(cnt - 1)
             boat += 1
+        if trd == weight:
+            mass.pop(-1)
+            mass.pop(cnt-1)
+            boat += 1
+        elif trd > weight:
+            mass.pop(-1)
+            boat += 1
 
-print(boat)
+print(boat,  "лодок")
+print(loosers, "рыбаков осталось на берегу")
