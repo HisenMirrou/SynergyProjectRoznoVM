@@ -5,12 +5,12 @@
 fish = int(input("Введите количество рыбаков:"))
 weight = int(input("Введите вес который выдержит лодка:"))
 boat = 0
-mass = [1200, 33,23,55,98]
+mass = []
 loosers = 0
 
 while fish > 0:
     fish -= 1
-    # mass.append(float(input("Введите вес рыбака:")))
+    mass.append(float(input("Введите вес рыбака:")))
 mass.sort()
 while len(mass) > 0:
     if mass[-1] > weight:
